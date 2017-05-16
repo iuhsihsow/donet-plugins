@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "calculator", "calculator\ca
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginContracts", "PluginContracts\PluginContracts.csproj", "{43C879D1-31AE-424F-91D1-92CF286D5497}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubOperation", "SubOperation\SubOperation.csproj", "{889B221C-DDF7-4F50-8F82-2E00EC231C64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{43C879D1-31AE-424F-91D1-92CF286D5497}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43C879D1-31AE-424F-91D1-92CF286D5497}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43C879D1-31AE-424F-91D1-92CF286D5497}.Release|Any CPU.Build.0 = Release|Any CPU
+		{889B221C-DDF7-4F50-8F82-2E00EC231C64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{889B221C-DDF7-4F50-8F82-2E00EC231C64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{889B221C-DDF7-4F50-8F82-2E00EC231C64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{889B221C-DDF7-4F50-8F82-2E00EC231C64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
