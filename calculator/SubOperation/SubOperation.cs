@@ -11,11 +11,6 @@ namespace SubOperation
     {
         public string Name
         {
-            get { return "Subtraction plug-in"; }
-        }
-
-        public string ShowSymbol
-        {
             get { return "-"; }
         }
 

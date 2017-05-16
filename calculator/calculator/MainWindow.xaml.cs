@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PluginContracts;
 
 namespace calculator
 {
@@ -23,11 +24,37 @@ namespace calculator
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
         private ViewModel _vm = new ViewModel();
+        Dictionary<string, IPlugin> _Plugins;
+        IPlugin _current = null;
 
         public MainWindow()
         {
             InitializeComponent();
             this.DataContext = this;
+            _Plugins = new Dictionary<string, IPlugin>();
+            ICollection<IPlugin> plugins = GenericPluginLoader<IPlugin>.LoadPlugins("Plugins");
+            foreach(var item in plugins)
+            {
+                _Plugins.Add(item.Name, item);
+				Button b = new Button();
+				b.Content = item.Name;
+				b.Click += b_Click;
+				PluginGrid.Children.Add(b);
+            }
+        }
+
+        private void b_Click(object sender, RoutedEventArgs e)
+        {
+            Button b = sender as Button;
+            if(b != null)
+            {
+                string key = b.Content.ToString();
+                if(_Plugins.ContainsKey(key))
+                {
+                    _current = _Plugins[key];
+                    UIOperator = _current.Name;
+                }
+            }
         }
 
         public double UIFirst
@@ -42,7 +69,8 @@ namespace calculator
         public double UISecond
         {
             get { return _vm.Second; }
-            set { 
+            set 
+            { 
                 _vm.Second = value;
                 NotifyPropertyChanged("UISecond");
             }
@@ -67,7 +95,10 @@ namespace calculator
 
         private void GetResult(object sender, RoutedEventArgs e)
         {
-            UIResult = UIFirst + UISecond;
+            if(_current != null)
+            {
+                UIResult = _current.Do(UIFirst, UISecond);
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
