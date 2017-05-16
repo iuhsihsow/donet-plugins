@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace calculator
 {
-    public class ViewModel : INotifyPropertyChanged
+    public class ViewModel
     {
         public ViewModel()
         {
@@ -19,35 +19,25 @@ namespace calculator
         public double First
         {
             get { return _dm.FirstNumber; }
-            set { _dm.FirstNumber = value; NotifyPropertyChanged("First"); }
+            set { _dm.FirstNumber = value; }
         }
 
         public double Second
         {
             get { return _dm.SecondNumber; }
-            set { _dm.SecondNumber = value; NotifyPropertyChanged("Second"); }
+            set { _dm.SecondNumber = value; }
         }
 
-        public double Result 
+        public double Result
         {
             get { return _dm.Result; }
-            set { _dm.Result = value; NotifyPropertyChanged("Result"); }
+            set { _dm.Result = value; }
         }
 
         public string Operator
         {
             get { return _dm.Operation; }
-            set { _dm.Operation = value; NotifyPropertyChanged("Operator");}
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void NotifyPropertyChanged(String propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            set { _dm.Operation = value; }
         }
     }
 }
