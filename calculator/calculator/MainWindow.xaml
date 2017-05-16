@@ -1,0 +1,17 @@
+﻿<Window x:Class="calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="258" Width="374">
+    <Grid Margin="0,0,0,59">
+        <Grid HorizontalAlignment="Left" Height="41" Margin="4,28,0,0" VerticalAlignment="Top" Width="361" Background="#FFE4E8D8">
+            <TextBox x:Name="first" HorizontalAlignment="Left" Height="23" Margin="10,8,0,0" TextWrapping="Wrap"  Text="{Binding Path=UIFirst, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay }" VerticalAlignment="Top" Width="80"/>
+            <TextBox x:Name="oper" HorizontalAlignment="Left" Height="23" Margin="106,8,0,0" TextWrapping="Wrap" Text="{Binding Path=UIOperator,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0.02,0.522" IsEnabled="False"/>
+            <TextBox x:Name="second" HorizontalAlignment="Left" Height="23" Margin="141,8,0,0" TextWrapping="Wrap" Text="{Binding Path=UISecond, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" VerticalAlignment="Top" Width="80"/>
+            <TextBox x:Name="result" HorizontalAlignment="Left" Height="23" Margin="271,8,0,0" TextWrapping="Wrap" Text="{Binding Path=UIResult, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" VerticalAlignment="Top" Width="80" RenderTransformOrigin="2.38,0.478"/>
+            <Button Content="=" HorizontalAlignment="Left" Margin="233,10,0,0" VerticalAlignment="Top" Width="24" Click="GetResult"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="100" Margin="4,74,0,-6" VerticalAlignment="Top" Width="361" Background="#FFEEEAEA">
+            <Button Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.013,-0.2"/>
+        </Grid>
+    </Grid>
+</Window>
